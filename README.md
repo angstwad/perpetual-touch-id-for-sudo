@@ -1,14 +1,16 @@
 # perpetual-touch-id-for-sudo
 
-## Wtf
+![Screenshot 2023-11-22 at 4.26.55 PM.png](./readme/sudo.png)
 
-Touch ID can be used for passwordless sudo in your terminal.  You just need to add the following line into your `/etc/pam.d/sudo` file:
+## Why does this exist?
+
+Did you know Touch ID can be used for passwordless sudo in your terminal on macOS?  You just need to add the following line into your `/etc/pam.d/sudo` file:
 
 ```
 auth sufficient pam_tid.so
 ```
 
-But every time you upgrade, macOS blows this change away.
+But there's one major problem: every time you upgrade macOS, the updater blows this change away.
 
 This script helps you keep your `/etc/pam.d/sudo` up-to-date so you don't need to fix this file with every system upgrade.
 
