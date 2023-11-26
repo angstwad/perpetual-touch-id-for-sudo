@@ -11,7 +11,7 @@ LINE = "\nauth sufficient pam_tid.so"
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Ensures Touch ID is ")
+    parser = argparse.ArgumentParser(description="Ensures Touch ID is enabled for sudo")
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--file", type=str, default="/etc/pam.d/sudo")
     args = parser.parse_args()
