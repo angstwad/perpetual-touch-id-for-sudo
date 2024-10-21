@@ -16,11 +16,23 @@ This script helps you keep your `/etc/pam.d/sudo` up-to-date so you don't need t
 
 ## How to Use
 
-Drop `pam_tid.py` somewhere on your file system.  I keep mine at `~/.local/bin/pam_tid.py`.  I made mine executable with the following:
+Drop `src/pam_tid/pam_tid.py` somewhere on your file system.  I keep mine at `~/.local/bin/pam_tid.py`.  I made mine executable with the following:
 
 ```bash
 chmod u+x ~/.local/bin/pam_tid.py
 ```
+
+Alternatively, pip install from github:
+
+```bash
+pip3 install --user git+https://github.com/angstwad/perpetual-touch-id-for-sudo
+```
+
+Once installed, get the path to it and use the path to it in the below shell function:
+```bash
+which pam_tid  # probably something like ~/.local/bin/pam_tid?
+```
+
 
 Add the following function into your shell `rc` file.  Because I use bash, I appended this to my `.bashrc`:
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Copyright (c) 2023 Paul Durivage
+Copyright (c) 2023 Paul Durivage <pauldurivage+github@gmail.com>
 """
 import argparse
 import pathlib
 import re
 import sys
 
-LINE = "\nauth sufficient pam_tid.so"
+LINE = "auth sufficient pam_tid.so\n"
 
 
 def main():
@@ -40,8 +40,13 @@ def main():
     if not match_tid:
         p_auth_suff = re.compile(r"^auth\s+sufficient\s+pam_\w+\.so$",
                                  flags=re.MULTILINE)
-        match = list(re.finditer(p_auth_suff, data))[-1]
-        s_out = data[:match.end()] + LINE + data[match.end():]
+        matches = list(re.finditer(p_auth_suff, data))
+        if not matches:
+            start = 0
+        else:
+            start = matches[0].start()
+
+        s_out = data[:start] + LINE + data[start:]
 
         with open(path, 'w') as f:
             f.write(s_out)

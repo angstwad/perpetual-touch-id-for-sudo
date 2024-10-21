@@ -1,0 +1,23 @@
+[project]
+name = "auto-pam-tid"
+authors = [
+    { name = "Paul Durivage", email = "pauldurivage@gmail.com" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+description = "Passwordless sudo with Touch ID"
+requires-python = ">= 3.10"
+version = "1.0.0"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.target.sdist.force-include]
+"src/pam_tid.py" = "src/pam_tid/pam_tid.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pam_tid"]
+
+[project.scripts]
+pam_tid = "pam_tid.pam_tid:main"
