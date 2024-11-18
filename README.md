@@ -2,6 +2,8 @@
 
 ![Screenshot 2023-11-22 at 4.26.55 PM.png](./readme/sudo.png)
 
+Consider reading my (probably redundant) [Medium post](https://medium.com/@durivage/automatically-enable-touch-id-for-sudo-on-macos-0369ad1f114f) about this.
+
 ## Why does this exist?
 
 Did you know Touch ID can be used for passwordless sudo in your terminal on macOS?  You just need to add the following line into your `/etc/pam.d/sudo` file:
